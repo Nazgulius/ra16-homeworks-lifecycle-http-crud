@@ -4,3 +4,60 @@
   padding: 2rem;
   text-align: center;
 }
+
+.container-title {
+  display: flex;  
+  align-items: baseline;
+}
+
+.title, .new-notes-title {
+  margin: 5px;
+}
+
+.btn-refresh, .notes-btn, .new-notes-add {
+  width: 26px;
+  height: 26px;
+  box-sizing: content-box;
+  margin: 5px;
+  padding: 5px;
+  border: #000000 1px solid;
+  border-radius: 50%;
+}
+
+.content-notes {
+  background-color: #fdfaf2;
+}
+
+.notes {
+  position: relative;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  background-color:aliceblue;
+  width: auto;
+  height: auto;
+  margin: 10px;
+}
+
+.notes-btn {
+  position: absolute;
+  top: -20%;
+  left: 90%;
+}
+
+.new-notes-title {
+  margin-left: 5px;
+  margin-right: auto;
+  font-weight: bold;
+}
+
+.form {
+  position: relative;
+  display: flex;  
+  flex-direction: column;
+}
+
+.new-notes-add {
+  position: absolute;
+  top: 80%;
+  left: 80%;
+}
