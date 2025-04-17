@@ -6,10 +6,11 @@ interface NotesRenderProps {
 }
 
 const NotesRender: React.FC<NotesRenderProps> = ({ id, text, onRemove }) => {
-
+  console.log(id);
+  console.log(text);
   return (
     <div className="notes">
-      <p className="notes-text">много, много текста {text}</p>
+      <p className="notes-text">{text}</p>
       <button 
         className="notes-btn"
         onClick={() => onRemove(id)}

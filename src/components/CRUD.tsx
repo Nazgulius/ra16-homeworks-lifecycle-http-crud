@@ -3,12 +3,13 @@ import NotesRender from './NotesRender'
 
 interface Notes {
   id: number;
-  text: string;
+  content: string;
 }
 
 const CRUD: React.FC = () => {
   const [noteses, setNoteses] = useState<Notes[]>([]);
   const [text, setText] = useState('');
+  const url = 'https://ra16-homeworks-lifecycle-http-crud-server.onrender.com';
 
   useEffect(() => {  
     fetchNotes();  
@@ -16,8 +17,9 @@ const CRUD: React.FC = () => {
 
   const fetchNotes = async () => {  
     try {  
-      const response = await fetch('https://ra16-homeworks-lifecycle-http-crud-server.onrender.com/notes');  
+      const response = await fetch(url + '/notes');  
       const data = await response.json();  
+      console.log('Полученные заметки:', data); // Отладка: выводим полученные заметки 
       setNoteses(data);  
     } catch (error) {  
       console.error('Ошибка при получении заметок:', error);  
@@ -31,7 +33,7 @@ const CRUD: React.FC = () => {
     if (!text.trim()) return;  
 
     try {  
-      await fetch('https://ra16-homeworks-lifecycle-http-crud-server.onrender.com/notes', {  
+      await fetch(url + '/notes', {  
         method: 'POST',  
         headers: {  
           'Content-Type': 'application/json',  
@@ -49,7 +51,7 @@ const CRUD: React.FC = () => {
   // удаление Notes
   const removeNotes = async (id: number) => {  
     try {  
-      await fetch(`https://ra16-homeworks-lifecycle-http-crud-server.onrender.com/notes/${id}`, {  
+      await fetch(url + `/notes/${id}`, {  
         method: 'DELETE',  
       });  
       fetchNotes(); // Обновляем список заметок после удаления  
@@ -73,7 +75,7 @@ const CRUD: React.FC = () => {
           <NotesRender 
             key={notes.id}
             id={notes.id}
-            text={notes.text}
+            text={notes.content}
             onRemove={removeNotes}
           />
         ))}

@@ -25,6 +25,8 @@
 }
 
 .content-notes {
+  display: flex;  
+  flex-flow: row wrap;
   background-color: #fdfaf2;
 }
 
@@ -34,14 +36,19 @@
   border-radius: 5px;
   background-color:aliceblue;
   width: auto;
+  max-width: 300px;
   height: auto;
   margin: 10px;
 }
 
+.notes-text {
+  padding: 10px;
+}
+
 .notes-btn {
   position: absolute;
-  top: -20%;
-  left: 90%;
+  top: -10px;
+  right: -25px;
 }
 
 .new-notes-title {
@@ -56,8 +63,9 @@
   flex-direction: column;
 }
 
+
 .new-notes-add {
   position: absolute;
-  top: 80%;
-  left: 80%;
+  bottom: -25px;
+  left: 0px;
 }
